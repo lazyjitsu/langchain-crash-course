@@ -9,7 +9,7 @@ load_dotenv()
 model = ChatOpenAI(model="gpt-4o")
 
 # SystemMessage:
-#   Message for priming AI behavior, usually passed in as the first of a sequenc of input messages.
+#   Message for priming AI behavior, usually passed in as the first of a sequenc of input messages. I think it must come first
 # HumanMessagse:
 #   Message from a human to the AI model.
 messages = [
@@ -23,7 +23,7 @@ print(f"Answer from AI: {result.content}")
 
 
 # AIMessage:
-#   Message from an AI.
+#   Message from an AI. Now we are adding a little more history
 messages = [
     SystemMessage(content="Solve the following math problems"),
     HumanMessage(content="What is 81 divided by 9?"),
@@ -31,6 +31,6 @@ messages = [
     HumanMessage(content="What is 10 times 5?"),
 ]
 
-# Invoke the model with messages
+# # Invoke the model with messages
 result = model.invoke(messages)
 print(f"Answer from AI: {result.content}")

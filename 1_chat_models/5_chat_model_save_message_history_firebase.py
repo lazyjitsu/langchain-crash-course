@@ -9,7 +9,8 @@ from langchain_openai import ChatOpenAI
 Steps to replicate this example:
 1. Create a Firebase account
 2. Create a new Firebase project
-    - Copy the project ID
+    - Copy the project ID  ai-agent-fb
+
 3. Create a Firestore database in the Firebase project
 4. Install the Google Cloud CLI on your computer
     - https://cloud.google.com/sdk/docs/install
@@ -19,14 +20,14 @@ Steps to replicate this example:
 5. Enable the Firestore API in the Google Cloud Console:
     - https://console.cloud.google.com/apis/enableflow?apiid=firestore.googleapis.com&project=crewai-automation
 """
-
+# $ source $(echo 'C:\Users\mpere\AppData\Local\pypoetry\Cache\virtualenvs\langchain-crash-course--ifvyb5U-py3.11\Scripts\activate'|sed 's/\\/\//g')
 load_dotenv()
 
 # Setup Firebase Firestore
-PROJECT_ID = "langchain-demo-abf48"
+PROJECT_ID = "ai-agent-fb"
 SESSION_ID = "user_session_new"  # This could be a username or a unique ID
 COLLECTION_NAME = "chat_history"
-
+# public facing proj id project-24358765654
 # Initialize Firestore Client
 print("Initializing Firestore Client...")
 client = firestore.Client(project=PROJECT_ID)
@@ -43,9 +44,9 @@ print("Current Chat History:", chat_history.messages)
 
 # Initialize Chat Model
 model = ChatOpenAI()
-
+import os
 print("Start chatting with the AI. Type 'exit' to quit.")
-
+print("The cool thing about this agent is it remembers your previous chat!! Ask it somthing like 'who was i talking about' after exiting to see if it members")
 while True:
     human_input = input("User: ")
     if human_input.lower() == "exit":
